@@ -14,6 +14,7 @@ use App\Http\Controllers\PatientController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/welcome', [QrCodeController::class, 'generateQrCode'])->name('welcome');
+
+Route::get('/', [QrCodeController::class, 'generateQrCode']);
 Route::get('/form', [QrCodeController::class, 'showForm'])->name('form');
 Route::post('/store/patients', [PatientController::class, 'store'])->name('patients.store');

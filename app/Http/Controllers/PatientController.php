@@ -22,19 +22,19 @@ class PatientController extends Controller
     {
         //
     }
-
-    /**
-     * Store a newly created resource in storage.
-     */
+    
+    //make a store request to save the patient information into the database
     public function store(Request $request)
     {
         try {
             $patient = Patient::create($request->all());
-            echo "Patient information saved successfully!";
-        } catch (\Exception $e) {
-            // Handle the exception, e.g., log it or return an error message
-            echo "Error saving patient information: " . $e->getMessage();
+            // Display a success message using SweetAlert
+            return redirect()->route('form')->with('success', 'Patient information saved successfully!');
+        }catch(Exception $e){
+
+            return redirect()->route('form')->with('success', 'Patient information saved successfully!');
         }
+
     }
 
     /**

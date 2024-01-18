@@ -11,7 +11,8 @@ class QrCodeController extends Controller
     public function generateQrCode()
     {
         $url = "/form";
-        return response(QrCode::size(400)->generate($url));
+        $qrCode = QrCode::size(400)->generate($url);
+        return view('welcome', compact('qrCode'));
     }
 
     public function showForm(){
@@ -19,9 +20,7 @@ class QrCodeController extends Controller
         return view('form');
     }
 
-    public function store(Request $request){
-
-        
+    public function store(Request $request){    
         
     }
 }

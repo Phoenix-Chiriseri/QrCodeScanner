@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
-            $table->string("patient_name");
-            $table->string("patient_email");
-            $table->string("patient_phone");
+            $table->string('patient_name');
+            $table->date('date_of_birth');
+            $table->string('address');
+            $table->string('hospital_area');
+            $table->enum('rating', ['Very Good', 'Good', 'Fair', 'Poor']);
             $table->timestamps();
         });
     }
